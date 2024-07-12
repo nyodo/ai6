@@ -114,7 +114,7 @@ const getWebsocketUrl = () => {
 
         let authorizationOrigin = `${apiKeyName}="${requestObj.APIKey}", algorithm="${algorithm}", headers="${headers}", signature="${signature}"`;
 
-        let authorization = base64.encode(authorizationOrigin);
+        let authorization = window.btoa(authorizationOrigin);
 
         // 将空格编码
         url = `${url}?authorization=${authorization}&date=${encodeURI(date)}&host=${host}`;
